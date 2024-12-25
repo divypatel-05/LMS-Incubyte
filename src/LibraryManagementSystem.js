@@ -51,9 +51,9 @@ class LibraryManagementSystem {
     #validatePublicationYear(year) {
         const currentYear = new Date().getFullYear();
         if (year > currentYear) {
-            throw new Error(`Publication year must be between the range of 100 to ${currentYear}`);
+            throw new Error(`Publication year must be between the range of 1 to ${currentYear}`);
         } else if (year < 1) {
-            throw new Error("Cannot add a book having publication year < 100");
+            throw new Error("Cannot add a book having publication year < 1");
         }
         return true;
     }

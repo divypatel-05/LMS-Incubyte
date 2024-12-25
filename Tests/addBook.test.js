@@ -51,6 +51,6 @@ describe('LibraryManagementSystem Tests', () => {
     test('addBookWithInvalidPublicationYearTest', () => {
         const currentYear = new Date().getFullYear();
         const book = { title: 'The Alchemist', ISBN: '136-123-123-9875', author: 'Paulo Coelho', publicationYear: 2030 };
-        expect(() => lms.addBook(book)).toThrow(`Publication year must be between the range of 0 to ${currentYear}`);
+        expect(() => lms.addBook(book)).toThrow(`Publication year must be between the range of 1 to ${currentYear}`);
     });
 });
