@@ -29,4 +29,9 @@ describe('LibraryManagementSystem Tests', () => {
         expect(() => lms.addBook(book)).toThrow('Book title cannot be empty');
     });
 
+    // Test to check adding a book with a null title, which should throw an error
+    test('addBookWithNullTitleTest', () => {
+        const book = { title: null, ISBN: '132-123-123-9875', author: 'James Clear', publicationYear: 2018 };
+        expect(() => lms.addBook(book)).toThrow('Book title cannot be null!');
+    });
 });

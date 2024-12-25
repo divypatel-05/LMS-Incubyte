@@ -23,6 +23,7 @@ class LibraryManagementSystem {
         }
     }
 
+    // Private method to Check if the title is null or an empty string, throws an error
     #validateTitle(title) {
         if (title === null) {
             throw new Error("Book title cannot be null!");
@@ -31,7 +32,6 @@ class LibraryManagementSystem {
         }
         return true;
     }
-
 }
 
 module.exports = LibraryManagementSystem;
