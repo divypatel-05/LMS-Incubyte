@@ -34,4 +34,16 @@ describe('LibraryManagementSystem Tests', () => {
         const book = { title: null, ISBN: '132-123-123-9875', author: 'James Clear', publicationYear: 2018 };
         expect(() => lms.addBook(book)).toThrow('Book title cannot be null!');
     });
+
+    // Test to ensure adding a book with an empty author throws an error
+    test('addBookWithEmptyAuthorTest', () => {
+        const book = { title: 'Atomic Habits', ISBN: '134-123-123-9875', author: '', publicationYear: 2018 };
+        expect(() => lms.addBook(book)).toThrow('Book Author name cannot be empty!');
+    });
+
+    // Test to ensure adding a book with a null author throws an error
+    test('addBookWithNullAuthorTest', () => {
+        const book = { title: 'Atomic Habits', ISBN: '135-123-123-9875', author: null, publicationYear: 2018 };
+        expect(() => lms.addBook(book)).toThrow('Book Author cannot be null!');
+    });
 });

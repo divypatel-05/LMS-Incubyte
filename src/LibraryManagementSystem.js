@@ -15,7 +15,10 @@ class LibraryManagementSystem {
 
     // Method to add a book to the library
     addBook(book) {
-        if (this.#validateTitle(book.title)) {
+        if (
+            this.#validateTitle(book.title) &&
+            this.#validateAuthor(book.author)
+        ) {
             this.#availableBooks.push(book);
             console.log(`Book with ISBN ${book.ISBN} added successfully!`);
         } else {
@@ -32,6 +35,17 @@ class LibraryManagementSystem {
         }
         return true;
     }
+
+    // Private method to Check if the Author name is null or an empty string, throws an error
+    #validateAuthor(author) {
+        if (author === null) {
+            throw new Error("Book Author cannot be null!");
+        } else if (author === "") {
+            throw new Error("Book Author name cannot be empty!");
+        }
+        return true;
+    }
+
 }
 
 module.exports = LibraryManagementSystem;
