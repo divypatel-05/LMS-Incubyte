@@ -15,11 +15,22 @@ class LibraryManagementSystem {
 
     // Method to add a book to the library
     addBook(book) {
-
-        this.#availableBooks.push(book);
-        console.log(`Book with ISBN ${book.ISBN} added successfully!`);
+        if (this.#validateTitle(book.title)) {
+            this.#availableBooks.push(book);
+            console.log(`Book with ISBN ${book.ISBN} added successfully!`);
+        } else {
+            throw new Error("Invalid book details. Please check the fields.");
+        }
     }
 
+    #validateTitle(title) {
+        if (title === null) {
+            throw new Error("Book title cannot be null!");
+        } else if (title === "") {
+            throw new Error("Book title cannot be empty");
+        }
+        return true;
+    }
 
 }
 

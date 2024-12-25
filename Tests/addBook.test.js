@@ -22,4 +22,11 @@ describe('LibraryManagementSystem Tests', () => {
         expect(updatedAvailableBooks).toHaveLength(1);
         expect(updatedAvailableBooks).toContainEqual(book);
     });
+
+    // Test to check adding a book with an empty title, which should throw an error
+    test('addBookWithEmptyTitleTest', () => {
+        const book = { title: '', ISBN: '133-123-123-9875', author: 'James Clear', publicationYear: 2018 };
+        expect(() => lms.addBook(book)).toThrow('Book title cannot be empty');
+    });
+
 });
