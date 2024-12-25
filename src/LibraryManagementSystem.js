@@ -17,7 +17,8 @@ class LibraryManagementSystem {
     addBook(book) {
         if (
             this.#validateTitle(book.title) &&
-            this.#validateAuthor(book.author)
+            this.#validateAuthor(book.author) &&
+            this.#validatePublicationYear(book.publicationYear)
         ) {
             this.#availableBooks.push(book);
             console.log(`Book with ISBN ${book.ISBN} added successfully!`);
@@ -46,6 +47,16 @@ class LibraryManagementSystem {
         return true;
     }
 
+    // Private method to Check if the Publication year is negative or in future, throws an error
+    #validatePublicationYear(year) {
+        const currentYear = new Date().getFullYear();
+        if (year > currentYear) {
+            throw new Error(`Publication year must be between the range of 100 to ${currentYear}`);
+        } else if (year < 1) {
+            throw new Error("Cannot add a book having publication year < 100");
+        }
+        return true;
+    }
 }
 
 module.exports = LibraryManagementSystem;

@@ -46,4 +46,11 @@ describe('LibraryManagementSystem Tests', () => {
         const book = { title: 'Atomic Habits', ISBN: '135-123-123-9875', author: null, publicationYear: 2018 };
         expect(() => lms.addBook(book)).toThrow('Book Author cannot be null!');
     });
+
+    // Test to check adding a book with a negative or future publication year, which should throw an error
+    test('addBookWithInvalidPublicationYearTest', () => {
+        const currentYear = new Date().getFullYear();
+        const book = { title: 'The Alchemist', ISBN: '136-123-123-9875', author: 'Paulo Coelho', publicationYear: 2030 };
+        expect(() => lms.addBook(book)).toThrow(`Publication year must be between the range of 0 to ${currentYear}`);
+    });
 });
