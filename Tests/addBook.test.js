@@ -53,4 +53,24 @@ describe('LibraryManagementSystem Tests', () => {
         const book = { title: 'The Alchemist', ISBN: '136-123-123-9875', author: 'Paulo Coelho', publicationYear: 2030 };
         expect(() => lms.addBook(book)).toThrow(`Publication year must be between the range of 1 to ${currentYear}`);
     });
+
+    // Test to check adding a book with null ISBN, which should throw an error
+    test('addBookWithNullISBNTest', () => {
+        const book = { title: 'Sapiens', ISBN: null, author: 'Yuval Noah Harari', publicationYear: 2011 };
+        expect(() => lms.addBook(book)).toThrow('Cannot add a book having null ISBN');
+    });
+
+    // Test to check adding a book with lenght!=16, which should throw an error
+    test('addBookWithImproperLengthISBNTest', () => {
+        const book = { title: 'Sapiens', ISBN: '123', author: 'Yuval Noah Harari', publicationYear: 2011 };
+        expect(() => lms.addBook(book)).toThrow('Cannot add book having length != 16');
+    });
+
+    // Test to check adding a book with duplicate ISBN, which should throw an error
+    test('addBookWithDuplicateISBNTest', () => {
+        const book1 = { title: 'Sapiens', ISBN: '987-123-123-9875', author: 'Yuval Noah Harari', publicationYear: 2011 };
+        const book2 = { title: 'Thinking, Fast and Slow', ISBN: '987-123-123-9875', author: 'Daniel Kahneman', publicationYear: 2011 };
+        lms.addBook(book1); // Adding the first book
+        expect(() => lms.addBook(book2)).toThrow('Cannot add book with duplicate ISBN'); // Attempt to add the second book with the same ISBN
+    });
 });

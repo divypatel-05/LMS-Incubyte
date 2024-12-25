@@ -18,7 +18,9 @@ class LibraryManagementSystem {
         if (
             this.#validateTitle(book.title) &&
             this.#validateAuthor(book.author) &&
-            this.#validatePublicationYear(book.publicationYear)
+            this.#validatePublicationYear(book.publicationYear) &&
+            this.#validateISBN(book.ISBN)
+
         ) {
             this.#availableBooks.push(book);
             console.log(`Book with ISBN ${book.ISBN} added successfully!`);
@@ -57,6 +59,23 @@ class LibraryManagementSystem {
         }
         return true;
     }
+
+    // Private method to Check validity of ISBN (null, length, duplication), throws an error
+    #validateISBN(ISBN) {
+        if (ISBN === null) {
+            throw new Error("Cannot add a book having null ISBN");
+        } else if (ISBN.length !== 16) {
+            throw new Error("Cannot add book having length != 16");
+        }
+
+        for (let book of this.#availableBooks) {
+            if (book.ISBN === ISBN) {
+                throw new Error("Cannot add book with duplicate ISBN");
+            }
+        }
+        return true;
+    }
+
 }
 
 module.exports = LibraryManagementSystem;
