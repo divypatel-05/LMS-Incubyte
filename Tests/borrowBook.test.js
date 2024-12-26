@@ -68,5 +68,14 @@ describe('LibraryManagementSystem - borrowBook Tests', () => {
         expect(borrowedBooks).toHaveLength(2);
         expect(borrowedBooks).toContainEqual(book1);
         expect(borrowedBooks).toContainEqual(book2);
+
+        // Trying to borrow 3rd book, throws an error
+        expect(() => lms.borrowBook("987-123-123-1117")).toThrow("Trying to exceed the maximum limit of allowed borrowed books");
+
+        // Ensuring 3rd book is available, but can't borrow that
+        const availableBooks = lms.getAvailableBooks();
+        expect(availableBooks).toContainEqual(book3);
+        expect(borrowedBooks).not.toContainEqual(book3);
+
     });
 });
