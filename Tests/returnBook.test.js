@@ -24,7 +24,7 @@ describe('LibraryManagementSystem - returnBooks Tests', () => {
     });
 
     // test to check returning of not borrowed book
-    test('should throw an error when returning a book not borrowed', () => {
+    test('returnNotBookBorrowed', () => {
         const lms = new LibraryManagementSystem();
         const book = { title: 'Sapiens', ISBN: '6363-123-456-789', author: 'Yuval Noah Harari', publicationYear: 2011 };
 
