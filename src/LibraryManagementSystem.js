@@ -76,6 +76,19 @@ class LibraryManagementSystem {
         return true;
     }
 
+
+    // Method to view available books
+    viewAvailableBooks() {
+        console.log("Available Books are : \n");
+        this.#availableBooks.forEach(book => {
+            console.log(
+                `Title: ${book.title}\n` +
+                `Author: ${book.author}\n` +
+                `PublicationYear: ${book.publicationYear}\n` +
+                `ISBN: ${book.ISBN}\n`
+            );
+        });
+    }
 }
 
 module.exports = LibraryManagementSystem;
