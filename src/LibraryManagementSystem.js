@@ -94,6 +94,17 @@ class LibraryManagementSystem {
             );
         });
     }
+
+
+    // Method to borrow a book by ISBN
+    borrowBook(ISBN) {
+        const bookIndex = this.#availableBooks.findIndex(book => book.ISBN === ISBN);
+       
+        // Remove the book from availableBooks and add it to borrowedBooks
+        const [borrowedBook] = this.#availableBooks.splice(bookIndex, 1);
+        this.#borrowedBooks.push(borrowedBook);
+        console.log(`Book with ISBN ${ISBN} borrowed successfully!`);
+    }
 }
 
 module.exports = LibraryManagementSystem;

@@ -15,7 +15,7 @@ describe('LibraryManagementSystem - viewAvailableBooks Tests', () => {
         consoleSpy.mockRestore();
     });
 
-    // Test when atleast one book is available
+    // Test when one book is available
     test('viewAvailableBooksTest', () => {
         const consoleSpy = jest.spyOn(console, 'log').mockImplementation();
 
