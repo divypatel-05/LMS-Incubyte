@@ -113,6 +113,17 @@ class LibraryManagementSystem {
         this.#borrowedBooks.push(borrowedBook);
         console.log(`Book with ISBN ${ISBN} borrowed successfully!`);
     }
+
+    // Method to return a book by ISBN
+    returnBook(ISBN) {
+        const index = this.#borrowedBooks.findIndex(book => book.ISBN === ISBN);
+
+        // Remove the book from borrowedBooks and add it to availableBooks
+        const book = this.#borrowedBooks.splice(index, 1)[0];
+        this.#availableBooks.push(book);
+        console.log(`Book with ISBN ${ISBN} returned successfully!`);
+
+    }
 }
 
 module.exports = LibraryManagementSystem;
