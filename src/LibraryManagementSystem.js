@@ -99,7 +99,11 @@ class LibraryManagementSystem {
     // Method to borrow a book by ISBN
     borrowBook(ISBN) {
         const bookIndex = this.#availableBooks.findIndex(book => book.ISBN === ISBN);
-       
+
+        if (bookIndex === -1) {
+            throw new Error("Book is not present which you try to borrow");
+        }
+
         // Remove the book from availableBooks and add it to borrowedBooks
         const [borrowedBook] = this.#availableBooks.splice(bookIndex, 1);
         this.#borrowedBooks.push(borrowedBook);
