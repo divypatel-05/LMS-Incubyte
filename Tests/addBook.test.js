@@ -1,6 +1,6 @@
 const LibraryManagementSystem = require('../src/LibraryManagementSystem');
-const Book = require('../src/Book');
 
+// Groups all tests related to the "addBooks"
 describe('LibraryManagementSystem Tests', () => {
     let lms;
     let availableBooks;
@@ -74,3 +74,9 @@ describe('LibraryManagementSystem Tests', () => {
         expect(() => lms.addBook(book2)).toThrow('Cannot add book with duplicate ISBN'); // Attempt to add the second book with the same ISBN
     });
 });
+
+
+
+/*
+expect : define what you expect the output or behavior of a function or code to be.
+*/

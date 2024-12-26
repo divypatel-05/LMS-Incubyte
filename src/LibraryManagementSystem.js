@@ -1,5 +1,3 @@
-const Book = require('./Book');
-
 class LibraryManagementSystem {
     #availableBooks = [];
     #borrowedBooks = [];

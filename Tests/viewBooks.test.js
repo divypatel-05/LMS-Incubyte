@@ -1,5 +1,6 @@
 const LibraryManagementSystem = require('../src/LibraryManagementSystem');
 
+// Groups all tests related to the "viewBooks"
 describe('LibraryManagementSystem - viewAvailableBooks Tests', () => {
     let lms;
 
@@ -33,3 +34,8 @@ describe('LibraryManagementSystem - viewAvailableBooks Tests', () => {
         consoleSpy.mockRestore();
     });
 });
+
+
+/*
+expect : define what you expect the output or behavior of a function or code to be.
+*/

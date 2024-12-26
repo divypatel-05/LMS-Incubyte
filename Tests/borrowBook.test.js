@@ -1,5 +1,6 @@
 const LibraryManagementSystem = require('../src/LibraryManagementSystem');
 
+// Groups all tests related to the "borrowBooks"
 describe('LibraryManagementSystem - borrowBook Tests', () => {
     let lms;
 
@@ -79,3 +80,8 @@ describe('LibraryManagementSystem - borrowBook Tests', () => {
 
     });
 });
+
+
+/*
+expect : define what you expect the output or behavior of a function or code to be.
+*/

@@ -1,5 +1,6 @@
 const LibraryManagementSystem = require('../src/LibraryManagementSystem');
 
+// Groups all tests related to the "returnBooks"
 describe('LibraryManagementSystem - returnBooks Tests', () => {
     let lms;
 
@@ -44,3 +45,8 @@ describe('LibraryManagementSystem - returnBooks Tests', () => {
         expect(() => lms.returnBook("123-456-789-123-9876")).toThrow("Trying to return a book which is not borrowed or doesn't exist.");
     });
 });
+
+
+/*
+expect : define what you expect the output or behavior of a function or code to be.
+*/
