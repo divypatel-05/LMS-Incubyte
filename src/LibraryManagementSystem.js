@@ -116,6 +116,10 @@ class LibraryManagementSystem {
 
     // Method to return a book by ISBN
     returnBook(ISBN) {
+        if (!ISBN || typeof ISBN !== 'string' || ISBN.length !== 16) {
+            throw new Error("Trying to return a book which is not borrowed or doesn't exist.");
+        }        
+
         const index = this.#borrowedBooks.findIndex(book => book.ISBN === ISBN);
 
         if (index === -1) {
@@ -126,7 +130,6 @@ class LibraryManagementSystem {
         const book = this.#borrowedBooks.splice(index, 1)[0];
         this.#availableBooks.push(book);
         console.log(`Book with ISBN ${ISBN} returned successfully!`);
-
     }
 }
 
