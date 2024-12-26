@@ -79,6 +79,11 @@ class LibraryManagementSystem {
 
     // Method to view available books
     viewAvailableBooks() {
+        if (this.#availableBooks.length === 0) {
+            console.log("Sorry, no books are available in the library.");
+            return;
+        }
+
         console.log("Available Books are : \n");
         this.#availableBooks.forEach(book => {
             console.log(
