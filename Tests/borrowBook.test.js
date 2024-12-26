@@ -50,4 +50,23 @@ describe('LibraryManagementSystem - borrowBook Tests', () => {
         expect(borrowedBooks).toHaveLength(0);
     });
 
+    // Test to check user can borrow at max 2 books at a time
+    test('borrowMaxTwoBooks', () => {
+        const book1 = { title: "The Four Agreements", ISBN: "987-123-123-1118", author: "Don Miguel Ruiz", publicationYear: 1997 };
+        const book2 = { title: "The Four Agreements", ISBN: "987-123-123-1119", author: "Don Miguel Ruiz", publicationYear: 1997 };
+        const book3 = { title: "The Four Agreements", ISBN: "987-123-123-1117", author: "Don Miguel Ruiz", publicationYear: 1997 };
+
+        lms.addBook(book1);
+        lms.addBook(book2);
+        lms.addBook(book3);
+
+        lms.borrowBook("987-123-123-1118");
+        lms.borrowBook("987-123-123-1119");
+
+        // Assertions
+        const borrowedBooks = lms.getBorrowedBooks();
+        expect(borrowedBooks).toHaveLength(2);
+        expect(borrowedBooks).toContainEqual(book1);
+        expect(borrowedBooks).toContainEqual(book2);
+    });
 });

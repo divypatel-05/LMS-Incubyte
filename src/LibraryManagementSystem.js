@@ -98,6 +98,10 @@ class LibraryManagementSystem {
 
     // Method to borrow a book by ISBN
     borrowBook(ISBN) {
+        if (this.#borrowedBooks.length >= 3) {
+            throw new Error("Cannot borrow 3 or more books");
+        }
+
         const bookIndex = this.#availableBooks.findIndex(book => book.ISBN === ISBN);
 
         if (bookIndex === -1) {
