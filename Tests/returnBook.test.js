@@ -22,4 +22,15 @@ describe('LibraryManagementSystem - returnBooks Tests', () => {
         expect(borrowedBooks).not.toContainEqual(book); 
         expect(availableBooks).toContainEqual(book);
     });
+
+    // test to check returning of not borrowed book
+    test('should throw an error when returning a book not borrowed', () => {
+        const lms = new LibraryManagementSystem();
+        const book = { title: 'Sapiens', ISBN: '6363-123-456-789', author: 'Yuval Noah Harari', publicationYear: 2011 };
+    
+        lms.addBook(book);
+    
+        // Attempt to return a book with an ISBN that is not in borrowedBooks
+        expect(() => lms.returnBook('6363-987-654-321')).toThrow("Trying to return Not borrowed book");
+    });
 });

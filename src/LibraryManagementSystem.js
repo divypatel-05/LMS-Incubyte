@@ -118,6 +118,10 @@ class LibraryManagementSystem {
     returnBook(ISBN) {
         const index = this.#borrowedBooks.findIndex(book => book.ISBN === ISBN);
 
+        if (index === -1) {
+            throw new Error("Trying to return Not borrowed book");
+        }
+
         // Remove the book from borrowedBooks and add it to availableBooks
         const book = this.#borrowedBooks.splice(index, 1)[0];
         this.#availableBooks.push(book);
