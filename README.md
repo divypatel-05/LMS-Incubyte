@@ -74,19 +74,19 @@ To test individual functionalities, use the following commands:
 2. View Book functionality tests:
 
  ```bash
- npx jest tests/addBook.test.js
+ npx jest tests/viewBooks.test.js
  ```
 
 3. Borrow Book functionality tests:
 
  ```bash
- npx jest tests/addBook.test.js
+ npx jest tests/borrowBook.test.js
  ```
 
 4. Return Book functionality tests:
 
  ```bash
- npx jest tests/addBook.test.js
+ npx jest tests/returnBook.test.js
  ```
 
 ## Built With
