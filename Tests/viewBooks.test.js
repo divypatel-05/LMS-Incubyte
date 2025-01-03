@@ -35,7 +35,6 @@ describe('LibraryManagementSystem - viewAvailableBooks Tests', () => {
     });
 });
 
-
 /*
 expect : define what you expect the output or behavior of a function or code to be.
 */

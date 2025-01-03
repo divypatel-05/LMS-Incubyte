@@ -10,7 +10,6 @@ class LibraryManagementSystem {
         return [...this.#borrowedBooks];
     }
 
-
     // Method to add a book to the library
     addBook(book) {
         if (
@@ -96,8 +95,11 @@ class LibraryManagementSystem {
 
     // Method to borrow a book by ISBN
     borrowBook(ISBN) {
+        // console.log("Borrowed books are : ", this.#borrowedBooks.length);
+        // console.log("Available Books are : ", this.#availableBooks.length);
+        
         if (this.#borrowedBooks.length >= 3) {
-            throw new Error("Cannot borrow 3 or more books");
+            throw new Error("Trying to exceed the maximum limit of allowed borrowed books");
         }
 
         const bookIndex = this.#availableBooks.findIndex(book => book.ISBN === ISBN);

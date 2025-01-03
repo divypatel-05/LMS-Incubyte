@@ -37,7 +37,6 @@ describe('LibraryManagementSystem - returnBooks Tests', () => {
 
     // test to check returning of book with invalid ISBN (null, undefined, invalid length)
     test('returnBookInvalidISBN', () => {
-        const lms = new LibraryManagementSystem();
 
         expect(() => lms.returnBook(null)).toThrow("Trying to return a book which is not borrowed or doesn't exist.");
         expect(() => lms.returnBook(undefined)).toThrow("Trying to return a book which is not borrowed or doesn't exist.");
