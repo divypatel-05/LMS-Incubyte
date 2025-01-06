@@ -73,6 +73,13 @@ describe('LibraryManagementSystem Tests', () => {
         lms.addBook(book1); // Adding the first book
         expect(() => lms.addBook(book2)).toThrow('Cannot add book with duplicate ISBN'); // Attempt to add the second book with the same ISBN
     });
+
+    // Test to check ISBN should only contains numbers and hyphens
+    test('ISBNContainsNumberAndHyphens', ()=> {
+        const book1 = { title: 'Sapiens', ISBN: 'abc-123-123-9875', author: 'Yuval Noah Harari', publicationYear: 2011 };
+
+        expect(() => lms.addBook(book1)).toThrow("ISBN should only contain numbers and hyphens");
+    })
 });
 
 

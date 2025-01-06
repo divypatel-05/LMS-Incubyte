@@ -12,6 +12,10 @@ class LibraryManagementSystem {
 
     // Method to add a book to the library
     addBook(book) {
+        if ((!/^\d+(-\d+)*$/.test(book.ISBN)) && book.ISBN != null) {
+            throw new Error("ISBN should only contain numbers and hyphens");
+        }
+
         if (
             this.#validateTitle(book.title) &&
             this.#validateAuthor(book.author) &&

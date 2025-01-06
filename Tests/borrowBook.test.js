@@ -7,7 +7,7 @@ describe('LibraryManagementSystem - borrowBook Tests', () => {
     beforeEach(() => {
         lms = new LibraryManagementSystem();
     });
-    
+
     // test to borrow book when book is already present in library
     test('borrowAvailableBookTest', () => {
         const book = {
@@ -24,9 +24,9 @@ describe('LibraryManagementSystem - borrowBook Tests', () => {
         const borrowedBooks = lms.getBorrowedBooks();
 
         // Assertions
-        expect(availableBooks).toHaveLength(0); 
-        expect(borrowedBooks).toHaveLength(1); 
-        expect(borrowedBooks).toContainEqual(book); 
+        expect(availableBooks).toHaveLength(0);
+        expect(borrowedBooks).toHaveLength(1);
+        expect(borrowedBooks).toContainEqual(book);
         expect(availableBooks).not.toContainEqual(book);
     });
 
@@ -47,7 +47,7 @@ describe('LibraryManagementSystem - borrowBook Tests', () => {
         const borrowedBooks = lms.getBorrowedBooks();
 
         // Assertions
-        expect(availableBooks).toHaveLength(1); 
+        expect(availableBooks).toHaveLength(1);
         expect(borrowedBooks).toHaveLength(0);
     });
 
